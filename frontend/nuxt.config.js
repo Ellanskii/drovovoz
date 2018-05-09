@@ -20,6 +20,7 @@ module.exports = {
 
     modules: [
         'nuxt-buefy',
+        // '@nuxtjs/localtunnel',
     ],
     /*
      ** Build configuration
