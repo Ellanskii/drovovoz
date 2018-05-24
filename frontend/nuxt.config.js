@@ -19,13 +19,17 @@ module.exports = {
     loading: {color: '#3B8070'},
 
     modules: [
-        'nuxt-buefy',
-        // '@nuxtjs/localtunnel',
+        'nuxt-buefy'
+    ],
+
+    plugins: [
+        { src: '~plugins/yandex-maps.js', ssr: false },
     ],
     /*
      ** Build configuration
      */
     build: {
+        analyze: true,
         vendor: ['axios'],
         /*
          ** Run ESLint on save
