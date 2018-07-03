@@ -38,8 +38,7 @@ function init() {
                 type: 'Point',
                 coordinates: [55.66432, 37.80493]
             }
-        }
-        ]
+        }]
         // Сразу добавим точки на карту.
     }).addToMap(myMap);
 
@@ -78,12 +77,12 @@ function init() {
                 //пишем дистанцию на метке
                 var distance = Math.round(route.getLength() / 1000);
                 needed_point.properties.set({iconContent: distance});
-                console.log(distance);
+
                 var deliveryCost = function () {
                     document.getElementById('deliverycost').innerHTML = "Стоимость доставки составит <span>" + distance * 20 + " рублей</span>";
                 }
                 deliveryCost();
-                console.log(closestObject.geometry.getCoordinates());
+
             });
 
 

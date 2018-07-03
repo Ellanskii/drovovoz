@@ -33,7 +33,7 @@
                 nothingFound: false,
                 readyForSearch: false,
                 helper: {
-                    message: 'Мы найдём ближайший к Вам склад и рассчитаем стоимость с учётом доставки',
+                    message: 'Введите адрес доставки, чтобы найти лучшее предложение поблизости',
                     state: ''
                 },
                 apiUrl: 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address',
@@ -117,15 +117,19 @@
 </script>
 
 <style lang="stylus">
+    .search-container
+        background url("~assets/firewood-background-highres.jpg") center bottom
+        background-size cover
     .search
+        background rgba(0, 0, 0, .5)
         width 100%
         position absolute
         top 50%
         transform translateY(-50%)
+        transition top .3s
         &--up
-            top 0
+            top 8px
             transform translateY(0)
-            transition top .3s
             .label
                 display none
         .field, .helper

@@ -16,12 +16,23 @@
         :coords="dealer.coords",
         :balloon="{header: 'header', body: 'body', footer: 'footer'}"
         )
+        ymap-marker(
+        markerId="user-placemark",
+        marker-type="circle",
+        circle-radius="160"
+        hint-content="Доставить сюда",
+        :marker-fill="{color: '#000000', opacity: 0.4}",
+        :marker-stroke="{color: '#ff0000', width: 5}",
+        :coords="coords",
+        :balloon="{header: 'header', body: 'body', footer: 'footer'}"
+        )
 </template>
 
 <script>
     export default {
         data() {
             return {
+                map: '',
                 userCoords: '',
                 placemarks: [
                     {
@@ -40,9 +51,10 @@
 
         methods: {
             initHandler(map){
+                this.map = map
 
 //                console.log('inited')
-//                obj.events.add('click', function(e){console.info(e.get('coords'))})
+//                map.events.add('click', function(e){console.info(e.get('coords'))})
             }
         },
 

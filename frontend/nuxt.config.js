@@ -1,3 +1,9 @@
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+    router: {
+        base: '/drovovoz.build/'
+    }
+} : {}
+
 module.exports = {
     /*
      ** Headers of the page
@@ -19,11 +25,22 @@ module.exports = {
     loading: {color: '#3B8070'},
 
     modules: [
-        'nuxt-buefy'
+        'nuxt-buefy',
+        [
+            '@nuxtjs/yandex-metrika',
+            {
+                id: '49423855',
+                webvisor: true,
+                // clickmap:true,
+                // useCDN:false,
+                // trackLinks:true,
+                // accurateTrackBounce:true,
+            }
+        ]
     ],
 
     plugins: [
-        { src: '~plugins/yandex-maps.js', ssr: false },
+        {src: '~plugins/yandex-maps.js', ssr: false},
     ],
     /*
      ** Build configuration
@@ -44,5 +61,7 @@ module.exports = {
                 })
             }
         }
-    }
+    },
+
+    ...routerBase
 }

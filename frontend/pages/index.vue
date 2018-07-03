@@ -3,6 +3,7 @@
         y-map
         suggestions
         .hero-foot.has-text-centered
+            nuxt-link(to!="/about") О проекте
             a(href="#").has-text-white Как это работает?
 </template>
 
@@ -19,12 +20,17 @@
         },
 
         data() {
-            return {
-
-            }
+            return {}
         },
-        head: {
-            title: "🔥 Берёзовые дрова с доставкой | Дрововоз"
+        head () {
+            return {
+                meta: [
+                    {hid: 'description', name: 'description', content: 'Доставка колотых берёзовых дров по Москве и Московской области'}
+                ],
+
+                title: '🔥 Берёзовые дрова с доставкой',
+                titleTemplate: '%s | Дрововоз'
+            }
         }
     }
 </script>
