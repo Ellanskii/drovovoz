@@ -118,7 +118,7 @@
 
 <style lang="stylus">
     .search-container
-        background url("~assets/firewood-background-highres.jpg") center bottom
+        //background url("~assets/firewood-background-highres.jpg") center bottom
         background-size cover
     .search
         background rgba(0, 0, 0, .5)
