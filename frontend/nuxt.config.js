@@ -5,6 +5,9 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 } : {}
 
 module.exports = {
+    router: {
+        linkActiveClass: 'is-active'
+    },
     /*
      ** Headers of the page
      */
@@ -22,7 +25,7 @@ module.exports = {
     /*
      ** Customize the progress bar color
      */
-    loading: {color: '#3B8070'},
+    loading: {color: '#7957d5'},
 
     modules: [
         'nuxt-buefy',

@@ -55,6 +55,22 @@
 
 //                console.log('inited')
 //                map.events.add('click', function(e){console.info(e.get('coords'))})
+                var multiRoute = new ymaps.multiRouter.MultiRoute({
+                    // Описание опорных точек мультимаршрута.
+                    referencePoints: [
+                        [55.734876, 37.59308],
+                        "Москва, ул. Мясницкая"
+                    ],
+                    // Параметры маршрутизации.
+                    params: {
+                        // Ограничение на максимальное количество маршрутов, возвращаемое маршрутизатором.
+                        results: 2
+                    }
+                }, {
+                    // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
+                    boundsAutoApply: true
+                });
+                map.geoObjects.add(multiRoute);
             }
         },
 

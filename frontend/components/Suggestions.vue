@@ -12,6 +12,7 @@
         :loading="isFetching",
         open-on-focus,
         size="is-medium",
+        keep-first
         )
             template(slot="empty") {{ dummyText }}
     .helper.has-text-centered
