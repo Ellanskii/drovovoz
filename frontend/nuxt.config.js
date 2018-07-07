@@ -27,6 +27,10 @@ module.exports = {
      */
     loading: {color: '#7957d5'},
 
+    css: [
+        'assets/main.css'
+    ],
+
     modules: [
         'nuxt-buefy',
         [
@@ -34,16 +38,17 @@ module.exports = {
             {
                 id: '49423855',
                 webvisor: true,
-                // clickmap:true,
-                // useCDN:false,
-                // trackLinks:true,
-                // accurateTrackBounce:true,
+                clickmap:true,
+                useCDN:false,
+                trackLinks:true,
+                accurateTrackBounce:true,
             }
         ]
     ],
 
     plugins: [
         {src: '~plugins/yandex-maps.js', ssr: false},
+        {src: '~plugins/smoothscroll.js', ssr: false},
     ],
     /*
      ** Build configuration

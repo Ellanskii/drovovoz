@@ -55,22 +55,38 @@
 
 //                console.log('inited')
 //                map.events.add('click', function(e){console.info(e.get('coords'))})
-                var multiRoute = new ymaps.multiRouter.MultiRoute({
-                    // Описание опорных точек мультимаршрута.
-                    referencePoints: [
-                        [55.734876, 37.59308],
-                        "Москва, ул. Мясницкая"
-                    ],
-                    // Параметры маршрутизации.
-                    params: {
-                        // Ограничение на максимальное количество маршрутов, возвращаемое маршрутизатором.
-                        results: 2
-                    }
-                }, {
-                    // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
-                    boundsAutoApply: true
-                });
-                map.geoObjects.add(multiRoute);
+//                var multiRoute = new ymaps.multiRouter.MultiRoute({
+//                    // Описание опорных точек мультимаршрута.
+//                    referencePoints: [
+//                        [55.734876, 37.59308],
+//                        "Москва, ул. Мясницкая"
+//                    ],
+//                    // Параметры маршрутизации.
+//                    params: {
+//                        // Ограничение на максимальное количество маршрутов, возвращаемое маршрутизатором.
+//                        results: 2
+//                    }
+//                }, {
+//                    // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
+//                    boundsAutoApply: true
+//                });
+//                map.geoObjects.add(multiRoute);
+                if (Object.keys(this.dealers).length === 0 && this.dealers.constructor === Object) {
+                    this.nothingFoundAlert()
+                }
+            },
+            // TODO сделать нормальную модалку, а не алерт
+            nothingFoundAlert() {
+                this.$dialog.alert({
+                    title: 'Ничего не найдено',
+                    message: 'Похоже, что в этом районе у нас ещё нет партнёров',
+                    type: 'is-primary',
+                    hasIcon: true,
+                    icon: 'emoticon-sad',
+                    iconPack: 'mdi',
+                    confirmText: 'Жаль',
+//                    canCancel: true
+                })
             }
         },
 

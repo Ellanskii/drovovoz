@@ -1,9 +1,10 @@
 <template lang="pug">
-  // TODO На момент версии 1.4.0 не работает keep-alive между разными шаблонами, поэтому приходится пользоваться одним. Не проебать, когда ситуация изменится.
   div
     header
         navbar(:navbarEnd='navbarEnd')
     nuxt(keep-alive)
+    section.section
+        .container
     footer.footer#footer
 </template>
 
