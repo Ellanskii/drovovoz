@@ -38,12 +38,15 @@ module.exports = {
             {
                 id: '49423855',
                 webvisor: true,
-                clickmap:true,
-                useCDN:false,
-                trackLinks:true,
-                accurateTrackBounce:true,
+                clickmap: true,
+                useCDN: false,
+                trackLinks: true,
+                accurateTrackBounce: true,
             }
-        ]
+        ],
+        ['@nuxtjs/google-analytics', {
+            id: 'UA-121960121-1'
+        }]
     ],
 
     plugins: [
