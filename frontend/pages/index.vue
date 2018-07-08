@@ -7,25 +7,67 @@
                 a(href="#how-does-it-works" v-smooth-scroll).has-text-white Как это работает?
         main.section
             article.container
-                h1.title Берёзовые колотые дрова
+                .columns.is-multiline
+                    header.column.is-12
+                        h1.title Берёзовые колотые дрова
+                        p.subtitle Колотые, уложенные
+                    .column.is-4
+                        figure.image
+                            img(src="http://via.placeholder.com/500x500" alt="Берёзовые колотые дрова")
+                    .column.is-4.content
+                        h2 Характеристики
+                        table
+                            thead
+                                tr
+                                    td(colspan=2) Берёзовые дрова
+                            tbody
+                                tr
+                                    td Температура горения
+                                    td ~800&nbsp;°C
+                                tr
+                                    td Теплотворность
+                                    td 2800&nbsp;Ккал
+                                tr
+                                    td Длина полена
+                                    td 40&nbsp;см
+                            tfoot
+                    .column.is-4.content
+                        h2 Применение
+                        p.
+                            Наиболее популярный вид дров. Берёза широко распространена в наших широтах, что делает этот вид
+                            топлива недорогим и легкодоступным.
+                        p.
+                            Высокая температура горения обеспечивает быстрое нагревание помещения, а приятный аромат добавит уюта.
+                        p.
+                            Стоит иметь в виду, что берёза при горении выделяет значительное количество сажи, способной оседать
+                            на стенах дымохода.
+                        p.
+                            Распространённый выбор для топки бань, печей и каминов. Также пригодится на шашлыках или пикнике.
+
         aside.section#how-does-it-works
             .container
                 h1.title Как это работает
                 ol.columns
                     li.column.is-4
-                        h2.title.is-4 Узнайте лучшую цену поблизости
-                        p Из базы проверенных поставщиков берёзовых дров будет выбрано лучшее предложение
+                        figure.has-text-centered
+                            img(src="http://via.placeholder.com/300x300" alt="Берёзовые дрова недорого")
+                        h2.title.is-4.is-spaced Узнайте лучшую цену поблизости
+                        p.subtitle Из базы проверенных поставщиков берёзовых дров будет выбрано лучшее предложение
                     li.column.is-4
-                        h2.title.is-4 Сформируйте заказ
-                        p Укажите количество дров и удобное время доставки
+                        figure.has-text-centered
+                            img(src="http://via.placeholder.com/300x300" alt="Купить березовые дрова ")
+                        h2.title.is-4.is-spaced Сформируйте заказ
+                        p.subtitle Укажите количество дров и удобное время доставки
                     li.column.is-4
-                        h2.title.is-4 Закажите доставку
-                        p В течение нескольких минут с Вами свяжутся для уточнения деталей заказа
+                        figure.has-text-centered
+                            img(src="http://via.placeholder.com/300x300" alt="Доставка берёзовых дров")
+                        h2.title.is-4.is-spaced Закажите доставку
+                        p.subtitle В течение нескольких минут с Вами свяжутся для уточнения деталей заказа
 </template>
 
 <script>
-    import Suggestions from '~/components/Suggestions.vue'
-    import YMap from '~/components/Ymap.vue'
+    import Suggestions from '~/components/dealerSearch/Suggestions.vue'
+    import YMap from '~/components/dealerSearch/Ymap.vue'
 
     export default {
         components: {

@@ -15,18 +15,25 @@
         keep-first
         )
             template(slot="empty") {{ dummyText }}
-    .helper.has-text-centered
-        button.button.is-success.is-medium.is-rounded(v-if="readyForSearch", @click="$store.commit('toggleMap')") Найти продавца
-        p(v-else :class="helper.state") {{ helper.message }}
+    find-dealer-button(
+        :readyForSearch="readyForSearch",
+        :helper="helper"
+    )
 </template>
 
 <script>
     import axios from 'axios'
     import debounce from 'lodash/debounce'
 
+    import FindDealerButton from '~/components/dealerSearch/FindDealerButton.vue'
+
     export default {
+        components: {
+            FindDealerButton
+        },
         data() {
             return {
+                isLoading: true,
                 data: [],
                 address: '',
                 selected: null,

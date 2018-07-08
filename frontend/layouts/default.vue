@@ -4,15 +4,17 @@
     header
         navbar(:navbarEnd='navbarEnd')
     nuxt(keep-alive)
-    footer.footer#footer
+    footer-component
 </template>
 
 <script>
     import Navbar from '~/components/Navbar.vue'
+    import FooterComponent from '~/components/FooterComponent.vue'
 
     export default {
         components: {
-            Navbar
+            Navbar,
+            FooterComponent
         },
 
         head () {
