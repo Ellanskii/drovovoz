@@ -13,7 +13,7 @@
                         p.subtitle Колотые, уложенные
                     .column.is-4
                         figure.image
-                            img(src="http://via.placeholder.com/500x500" alt="Берёзовые колотые дрова")
+                            img(src="/placeholder.svg" alt="Берёзовые колотые дрова")
                     .column.is-4.content
                         h2 Характеристики
                         table
@@ -50,17 +50,17 @@
                 ol.columns
                     li.column.is-4
                         figure.has-text-centered
-                            img(src="http://via.placeholder.com/300x300" alt="Берёзовые дрова недорого")
+                            img(src="/placeholder.svg" alt="Берёзовые дрова недорого")
                         h2.title.is-4.is-spaced Узнайте лучшую цену поблизости
                         p.subtitle Из базы проверенных поставщиков берёзовых дров будет выбрано лучшее предложение
                     li.column.is-4
                         figure.has-text-centered
-                            img(src="http://via.placeholder.com/300x300" alt="Купить березовые дрова ")
+                            img(src="/placeholder.svg" alt="Купить березовые дрова ")
                         h2.title.is-4.is-spaced Сформируйте заказ
                         p.subtitle Укажите количество дров и удобное время доставки
                     li.column.is-4
                         figure.has-text-centered
-                            img(src="http://via.placeholder.com/300x300" alt="Доставка берёзовых дров")
+                            img(src="/placeholder.svg" alt="Доставка берёзовых дров")
                         h2.title.is-4.is-spaced Закажите доставку
                         p.subtitle В течение нескольких минут с Вами свяжутся для уточнения деталей заказа
 </template>
