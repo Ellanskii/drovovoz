@@ -1,14 +1,13 @@
 {
-  "name": "@drovovoz/frontend",
+  "name": "drovovoz",
   "version": "1.0.0",
   "description": "drovovoz",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run -w @drovovoz/backend develop & npm run -w @drovovoz/frontend dev",
+    "dev": "PORT=1338 npm run -w @drovovoz/backend develop & npm run -w @drovovoz/frontend dev",
     "build": "npm run -w @drovovoz/backend build && npm run -w @drovovoz/frontend build",
     "start": "npm run -w @drovovoz/backend start & npm run -w @drovovoz/frontend start",
-    "generate": "nuxt generate",
     "dev:be": "npm run -w @drovovoz/backend develop",
     "dev:fe": "npm run -w @drovovoz/frontend dev"
   },
@@ -23,7 +22,7 @@
     "url": "https://github.com/Ellanskii/drovovoz/issues"
   },
   "homepage": "https://github.com/Ellanskii/drovovoz#readme",
-  "private": "true",
+  "private": true,
   "workspaces": [
     "apps/*"
   ],
