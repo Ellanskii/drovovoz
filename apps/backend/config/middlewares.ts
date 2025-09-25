@@ -6,6 +6,13 @@ export default [
         useDefaults: true,
         directives: {
           'frame-ancestors': ["'self'", 'http://localhost:3000'],
+          //@see https://docs.strapi.io/cms/api/openapi
+          'script-src': ["'self'", "'unsafe-inline'", 'https://unpkg.com'],
+          'style-src': ["'self'", "'unsafe-inline'", 'https://unpkg.com'],
+          'connect-src': ["'self'", 'https:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'https:'],
+          'media-src': ["'self'", 'data:', 'blob:'],
+          upgradeInsecureRequests: null,
         },
       }
     }
