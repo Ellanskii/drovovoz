@@ -9,7 +9,8 @@
     "build": "npm run -w @drovovoz/backend build && npm run -w @drovovoz/frontend build",
     "start": "npm run -w @drovovoz/backend start & npm run -w @drovovoz/frontend start",
     "dev:be": "npm run -w @drovovoz/backend develop",
-    "dev:fe": "npm run -w @drovovoz/frontend dev"
+    "dev:fe": "npm run -w @drovovoz/frontend dev",
+    "api:generate": "npm run -w @drovovoz/backend openapi:generate && npm run -w @drovovoz/api-client api:generate"
   },
   "repository": {
     "type": "git",
