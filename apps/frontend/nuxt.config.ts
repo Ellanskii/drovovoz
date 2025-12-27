@@ -1,28 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
   modules: [
+    '@nuxt/eslint',
+    '@nuxt/ui',
     '@nuxtjs/strapi',
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n'
   ],
 
-  strapi: {
+    strapi: {
     devtools: true,
   },
 
   i18n: {
     locales: [
-      { code: 'en', name: 'English', file: 'en.json' },
-      { code: 'ru', name: 'Русский', file: 'ru.json' },
-      // { code: 'es', name: 'Español', file: 'es.json' },
-      // { code: 'fr', name: 'Français', file: 'fr.json' },
-      // { code: 'de', name: 'Deutsch', file: 'de.json' },
-      // { code: 'zh', name: '中文', file: 'zh.json' },
-      // { code: 'ja', name: '日本語', file: 'ja.json' },
-      // { code: 'ar', name: 'العربية', file: 'ar.json' },
-      // { code: 'pt', name: 'Português', file: 'pt.json' },
-      // { code: 'it', name: 'Italiano', file: 'it.json' }
+      // { code: 'en', name: 'English', file: 'en.json' },
+      // { code: 'ru', name: 'Русский', file: 'ru.json' },
     ],
     defaultLocale: 'ru',
     langDir: 'locales/',
@@ -33,4 +25,25 @@ export default defineNuxtConfig({
       redirectOn: 'root'
     }
   },
+
+  devtools: {
+    enabled: true
+  },
+
+  css: ['~/assets/css/main.css'],
+
+  routeRules: {
+    '/': { prerender: true }
+  },
+
+  compatibilityDate: '2025-01-15',
+
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs'
+      }
+    }
+  }
 })

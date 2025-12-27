@@ -1,35 +1,84 @@
 <script setup lang="ts">
 import type { ApiPostPostDocument } from '@drovovoz/api-client'
 
+useHead({
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+  ],
+  link: [
+    { rel: 'icon', href: '/favicon.ico' }
+  ],
+  htmlAttrs: {
+    lang: 'en'
+  }
+})
+
+const title = 'Nuxt Starter Template'
+const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
+
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+  twitterCard: 'summary_large_image'
+})
+
 const { find } = useStrapi()
 const { data: posts } = await find<ApiPostPostDocument>('posts')
-
-const { locales, setLocale } = useI18n()
-
-const switchLocalePath = useSwitchLocalePath()
 </script>
 
 <template>
-  <div>
-    <h1>{{ $t('welcome') }}</h1>
-    <h2>{{ $t('posts') }}</h2>
-    <pre>{{ posts }}</pre>
-    <ul>
-      <li v-for="post in posts" :key="post.id">
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.excerpt }}</p>
-        <NuxtTime :datetime="post.publishedAt" :locale="$i18n.locale" />
-      </li>
-    </ul>
-    
-    <!-- Language switcher -->
-    <div>
-      <label>{{ $t('language') }}: {{ $i18n.locale }}</label>
-      <ul>
-        <li v-for="locale in locales" :key="locale.code">
-          <NuxtLink :href="switchLocalePath(locale.code)">{{ locale.name }}{{ switchLocalePath(locale.code) }}</NuxtLink>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <UApp>
+    <UHeader>
+      <template #left>
+        <NuxtLink to="/">
+          <AppLogo class="w-auto h-6 shrink-0" />
+        </NuxtLink>
+
+        <TemplateMenu />
+      </template>
+
+      <template #right>
+        <UColorModeButton />
+
+        <UButton
+          to="https://github.com/nuxt-ui-templates/starter"
+          target="_blank"
+          icon="i-simple-icons-github"
+          aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+        />
+      </template>
+    </UHeader>
+
+    <UMain>
+      <pre>{{ posts }}</pre>
+      <NuxtPage />
+    </UMain>
+
+    <USeparator icon="i-simple-icons-nuxtdotjs" />
+
+    <UFooter>
+      <template #left>
+        <p class="text-sm text-muted">
+          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+        </p>
+      </template>
+
+      <template #right>
+        <UButton
+          to="https://github.com/nuxt-ui-templates/starter"
+          target="_blank"
+          icon="i-simple-icons-github"
+          aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+        />
+      </template>
+    </UFooter>
+  </UApp>
 </template>
