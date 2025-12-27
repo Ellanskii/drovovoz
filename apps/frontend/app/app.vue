@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { ApiPostPostDocument } from '@drovovoz/api-client'
-
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -25,9 +23,6 @@ useSeoMeta({
   twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
   twitterCard: 'summary_large_image'
 })
-
-const { find } = useStrapi()
-const { data: posts } = await find<ApiPostPostDocument>('posts')
 </script>
 
 <template>
@@ -56,7 +51,6 @@ const { data: posts } = await find<ApiPostPostDocument>('posts')
     </UHeader>
 
     <UMain>
-      <pre>{{ posts }}</pre>
       <NuxtPage />
     </UMain>
 
