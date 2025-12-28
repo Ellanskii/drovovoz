@@ -53,11 +53,11 @@
         "images"
       ]
     },
-    "categories": {
+    "category": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::category.category",
-      "mappedBy": "posts"
+      "inversedBy": "posts"
     },
     "tags": {
       "type": "relation",

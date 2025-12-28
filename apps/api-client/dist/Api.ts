@@ -60,7 +60,7 @@ export interface PluginUploadFileDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-09-25T16:26:00.840Z"
+   * @default "2025-12-28T09:09:20.264Z"
    */
   publishedAt: string;
   related: any;
@@ -86,7 +86,7 @@ export interface ApiCategoryCategoryDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-09-25T16:26:00.841Z"
+   * @default "2025-12-28T09:09:20.265Z"
    */
   publishedAt: string;
   /** A string field */
@@ -115,7 +115,7 @@ export interface ApiTagTagDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-09-25T16:26:00.842Z"
+   * @default "2025-12-28T09:09:20.266Z"
    */
   publishedAt: string;
   /** A string field */
@@ -148,7 +148,7 @@ export interface ApiPostPostDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-09-25T16:26:00.839Z"
+   * @default "2025-12-28T09:09:20.262Z"
    */
   publishedAt: string;
   /** A string field */
@@ -156,7 +156,7 @@ export interface ApiPostPostDocument {
   /** A media field */
   cover?: PluginUploadFileDocument;
   /** A relational field */
-  categories?: ApiCategoryCategoryDocument[];
+  category?: ApiCategoryCategoryDocument;
   /** A relational field */
   tags?: ApiTagTagDocument[];
   /** A relational field */
@@ -673,7 +673,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.837Z"
+             * @default "2025-12-28T09:09:20.261Z"
              */
             publishedAt: string;
             /** A string field */
@@ -711,7 +711,7 @@ export class Api<
           description?: string;
           /**
            * A datetime field
-           * @default "2025-09-25T16:26:00.847Z"
+           * @default "2025-12-28T09:09:20.271Z"
            */
           publishedAt: string;
           /** A string field */
@@ -766,7 +766,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.848Z"
+             * @default "2025-12-28T09:09:20.271Z"
              */
             publishedAt: string;
             /** A string field */
@@ -892,7 +892,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.844Z"
+             * @default "2025-12-28T09:09:20.269Z"
              */
             publishedAt: string;
             /** A string field */
@@ -931,7 +931,7 @@ export class Api<
           description?: string;
           /**
            * A datetime field
-           * @default "2025-09-25T16:26:00.849Z"
+           * @default "2025-12-28T09:09:20.272Z"
            */
           publishedAt?: string;
           /** A string field */
@@ -986,7 +986,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.850Z"
+             * @default "2025-12-28T09:09:20.273Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1074,7 +1074,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.851Z"
+             * @default "2025-12-28T09:09:20.277Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1208,10 +1208,10 @@ export class Api<
         populate?:
           | "*"
           | "cover"
-          | "categories"
+          | "category"
           | "tags"
           | "localizations"
-          | ("cover" | "categories" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "localizations")[];
         /** Select a locale */
         locale?: string;
         /** Fetch documents based on their status. Default to "published" if not specified. */
@@ -1243,7 +1243,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.855Z"
+             * @default "2025-12-28T09:09:20.279Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1251,7 +1251,7 @@ export class Api<
             /** A media field */
             cover?: PluginUploadFileDocument;
             /** A relational field */
-            categories?: ApiCategoryCategoryDocument[];
+            category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
             /** A relational field */
@@ -1287,15 +1287,19 @@ export class Api<
           excerpt?: string;
           /**
            * A datetime field
-           * @default "2025-09-25T16:26:00.858Z"
+           * @default "2025-12-28T09:09:20.282Z"
            */
           publishedAt: string;
           /** A string field */
           locale?: string;
           /** A media field */
           cover?: any;
-          /** A relational field */
-          categories?: string[];
+          /**
+           * A relational field
+           * @format uuid
+           * @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$
+           */
+          category?: string;
           /** A relational field */
           tags?: string[];
         };
@@ -1316,10 +1320,10 @@ export class Api<
         populate?:
           | "*"
           | "cover"
-          | "categories"
+          | "category"
           | "tags"
           | "localizations"
-          | ("cover" | "categories" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "localizations")[];
         /** Select a locale */
         locale?: string;
         /** Fetch documents based on their status. Default to "published" if not specified. */
@@ -1351,7 +1355,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.859Z"
+             * @default "2025-12-28T09:09:20.283Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1359,7 +1363,7 @@ export class Api<
             /** A media field */
             cover?: PluginUploadFileDocument;
             /** A relational field */
-            categories?: ApiCategoryCategoryDocument[];
+            category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
             /** A relational field */
@@ -1402,10 +1406,10 @@ export class Api<
         populate?:
           | "*"
           | "cover"
-          | "categories"
+          | "category"
           | "tags"
           | "localizations"
-          | ("cover" | "categories" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "localizations")[];
         /** Filters to apply to the query */
         filters?: Record<
           | "title"
@@ -1491,7 +1495,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.856Z"
+             * @default "2025-12-28T09:09:20.281Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1499,7 +1503,7 @@ export class Api<
             /** A media field */
             cover?: PluginUploadFileDocument;
             /** A relational field */
-            categories?: ApiCategoryCategoryDocument[];
+            category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
             /** A relational field */
@@ -1536,15 +1540,19 @@ export class Api<
           excerpt?: string;
           /**
            * A datetime field
-           * @default "2025-09-25T16:26:00.860Z"
+           * @default "2025-12-28T09:09:20.284Z"
            */
           publishedAt?: string;
           /** A string field */
           locale?: string;
           /** A media field */
           cover?: any;
-          /** A relational field */
-          categories?: string[];
+          /**
+           * A relational field
+           * @format uuid
+           * @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$
+           */
+          category?: string;
           /** A relational field */
           tags?: string[];
         };
@@ -1565,10 +1573,10 @@ export class Api<
         populate?:
           | "*"
           | "cover"
-          | "categories"
+          | "category"
           | "tags"
           | "localizations"
-          | ("cover" | "categories" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "localizations")[];
         /** Select a locale */
         locale?: string;
         /** Fetch documents based on their status. Default to "published" if not specified. */
@@ -1600,7 +1608,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.863Z"
+             * @default "2025-12-28T09:09:20.285Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1608,7 +1616,7 @@ export class Api<
             /** A media field */
             cover?: PluginUploadFileDocument;
             /** A relational field */
-            categories?: ApiCategoryCategoryDocument[];
+            category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
             /** A relational field */
@@ -1651,10 +1659,10 @@ export class Api<
         populate?:
           | "*"
           | "cover"
-          | "categories"
+          | "category"
           | "tags"
           | "localizations"
-          | ("cover" | "categories" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "localizations")[];
         /** Filters to apply to the query */
         filters?: Record<
           | "title"
@@ -1698,7 +1706,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.865Z"
+             * @default "2025-12-28T09:09:20.286Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1706,7 +1714,7 @@ export class Api<
             /** A media field */
             cover?: PluginUploadFileDocument;
             /** A relational field */
-            categories?: ApiCategoryCategoryDocument[];
+            category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
             /** A relational field */
@@ -1853,7 +1861,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.867Z"
+             * @default "2025-12-28T09:09:20.291Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1889,7 +1897,7 @@ export class Api<
           slug: string;
           /**
            * A datetime field
-           * @default "2025-09-25T16:26:00.869Z"
+           * @default "2025-12-28T09:09:20.293Z"
            */
           publishedAt: string;
           /** A string field */
@@ -1941,7 +1949,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.869Z"
+             * @default "2025-12-28T09:09:20.294Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2059,7 +2067,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.868Z"
+             * @default "2025-12-28T09:09:20.293Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2096,7 +2104,7 @@ export class Api<
           slug?: string;
           /**
            * A datetime field
-           * @default "2025-09-25T16:26:00.870Z"
+           * @default "2025-12-28T09:09:20.295Z"
            */
           publishedAt?: string;
           /** A string field */
@@ -2148,7 +2156,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.871Z"
+             * @default "2025-12-28T09:09:20.295Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2232,7 +2240,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-09-25T16:26:00.872Z"
+             * @default "2025-12-28T09:09:20.296Z"
              */
             publishedAt: string;
             /** A string field */
