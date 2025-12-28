@@ -26,9 +26,7 @@ const { data, pending, refresh, error } = await useAsyncData(
 </script>
 
 <template>
-  <h1>{{ route.params.slug }}</h1>
-  <pre>{{ data }}</pre>
-  <pre>{{ error }}</pre>
+  <MDC :value="data.data[0].content" />
 </template>
 
 <style scoped></style>

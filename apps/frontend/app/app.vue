@@ -50,7 +50,7 @@ useSeoMeta({
       </template>
     </UHeader>
 
-    <UMain>
+    <UMain as="main">
       <NuxtPage />
     </UMain>
 

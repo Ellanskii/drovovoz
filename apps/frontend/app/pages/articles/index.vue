@@ -17,7 +17,7 @@ const { data: posts } = await useAsyncData('posts', () =>
 <template>
   <UPage>
     <UPageHero title="Blog">
-      <pre>{{ posts }}</pre>
+      <!-- <pre>{{ posts }}</pre> -->
     </UPageHero>
 
     <UPageBody>
@@ -31,6 +31,7 @@ const { data: posts } = await useAsyncData('posts', () =>
             :description="post.excerpt"
             :image="post.cover && `http://localhost:1337${post.cover.url}`"
             :to="`/articles/${post.slug}`"
+            variant="subtle"
           />
         </UBlogPosts>
       </UContainer>
