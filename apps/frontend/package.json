@@ -17,7 +17,10 @@
     "@nuxtjs/i18n": "10.2.1",
     "@nuxtjs/mdc": "0.19.2",
     "@nuxtjs/strapi": "2.1.1",
-    "nuxt": "^4.2.2"
+    "@vueuse/nuxt": "14.1.0",
+    "@vueuse/router": "^14.1.0",
+    "nuxt": "^4.2.2",
+    "vue": "^3.5.26"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.12.1",

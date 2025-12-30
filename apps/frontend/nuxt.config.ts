@@ -1,11 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: true,
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxtjs/strapi',
     '@nuxtjs/i18n',
-    '@nuxtjs/mdc'
+    '@nuxtjs/mdc',
+    '@vueuse/nuxt',
   ],
 
     strapi: {
@@ -37,8 +40,6 @@ export default defineNuxtConfig({
     '/': { prerender: true }
   },
 
-  compatibilityDate: '2025-01-15',
-
   eslint: {
     config: {
       stylistic: {
@@ -46,5 +47,7 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
-  }
+  },
+
+  compatibilityDate: '2025-12-30',
 })
