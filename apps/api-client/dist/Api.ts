@@ -60,7 +60,7 @@ export interface PluginUploadFileDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-12-28T09:09:20.264Z"
+   * @default "2025-12-28T15:31:47.593Z"
    */
   publishedAt: string;
   related: any;
@@ -86,7 +86,7 @@ export interface ApiCategoryCategoryDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-12-28T09:09:20.265Z"
+   * @default "2025-12-28T15:31:47.594Z"
    */
   publishedAt: string;
   /** A string field */
@@ -115,7 +115,7 @@ export interface ApiTagTagDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-12-28T09:09:20.266Z"
+   * @default "2025-12-28T15:31:47.595Z"
    */
   publishedAt: string;
   /** A string field */
@@ -139,7 +139,7 @@ export interface ApiPostPostDocument {
   /** A UID field */
   slug: string;
   /** A richtext field */
-  content?: string;
+  content: string;
   /** A text field */
   excerpt?: string;
   /** A datetime field */
@@ -148,7 +148,7 @@ export interface ApiPostPostDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-12-28T09:09:20.262Z"
+   * @default "2025-12-28T15:31:47.591Z"
    */
   publishedAt: string;
   /** A string field */
@@ -673,7 +673,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.261Z"
+             * @default "2025-12-28T15:31:47.590Z"
              */
             publishedAt: string;
             /** A string field */
@@ -711,7 +711,7 @@ export class Api<
           description?: string;
           /**
            * A datetime field
-           * @default "2025-12-28T09:09:20.271Z"
+           * @default "2025-12-28T15:31:47.601Z"
            */
           publishedAt: string;
           /** A string field */
@@ -766,7 +766,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.271Z"
+             * @default "2025-12-28T15:31:47.601Z"
              */
             publishedAt: string;
             /** A string field */
@@ -892,7 +892,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.269Z"
+             * @default "2025-12-28T15:31:47.599Z"
              */
             publishedAt: string;
             /** A string field */
@@ -931,7 +931,7 @@ export class Api<
           description?: string;
           /**
            * A datetime field
-           * @default "2025-12-28T09:09:20.272Z"
+           * @default "2025-12-28T15:31:47.602Z"
            */
           publishedAt?: string;
           /** A string field */
@@ -986,7 +986,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.273Z"
+             * @default "2025-12-28T15:31:47.603Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1074,7 +1074,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.277Z"
+             * @default "2025-12-28T15:31:47.604Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1234,7 +1234,7 @@ export class Api<
             /** A UID field */
             slug: string;
             /** A richtext field */
-            content?: string;
+            content: string;
             /** A text field */
             excerpt?: string;
             /** A datetime field */
@@ -1243,7 +1243,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.279Z"
+             * @default "2025-12-28T15:31:47.606Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1282,12 +1282,12 @@ export class Api<
           /** A UID field */
           slug: string;
           /** A richtext field */
-          content?: string;
+          content: string;
           /** A text field */
           excerpt?: string;
           /**
            * A datetime field
-           * @default "2025-12-28T09:09:20.282Z"
+           * @default "2025-12-28T15:31:47.612Z"
            */
           publishedAt: string;
           /** A string field */
@@ -1346,7 +1346,7 @@ export class Api<
             /** A UID field */
             slug: string;
             /** A richtext field */
-            content?: string;
+            content: string;
             /** A text field */
             excerpt?: string;
             /** A datetime field */
@@ -1355,7 +1355,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.283Z"
+             * @default "2025-12-28T15:31:47.612Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1486,7 +1486,7 @@ export class Api<
             /** A UID field */
             slug: string;
             /** A richtext field */
-            content?: string;
+            content: string;
             /** A text field */
             excerpt?: string;
             /** A datetime field */
@@ -1495,7 +1495,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.281Z"
+             * @default "2025-12-28T15:31:47.608Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1540,7 +1540,7 @@ export class Api<
           excerpt?: string;
           /**
            * A datetime field
-           * @default "2025-12-28T09:09:20.284Z"
+           * @default "2025-12-28T15:31:47.614Z"
            */
           publishedAt?: string;
           /** A string field */
@@ -1599,7 +1599,7 @@ export class Api<
             /** A UID field */
             slug: string;
             /** A richtext field */
-            content?: string;
+            content: string;
             /** A text field */
             excerpt?: string;
             /** A datetime field */
@@ -1608,7 +1608,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.285Z"
+             * @default "2025-12-28T15:31:47.614Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1697,7 +1697,7 @@ export class Api<
             /** A UID field */
             slug: string;
             /** A richtext field */
-            content?: string;
+            content: string;
             /** A text field */
             excerpt?: string;
             /** A datetime field */
@@ -1706,7 +1706,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.286Z"
+             * @default "2025-12-28T15:31:47.616Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1861,7 +1861,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.291Z"
+             * @default "2025-12-28T15:31:47.618Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1897,7 +1897,7 @@ export class Api<
           slug: string;
           /**
            * A datetime field
-           * @default "2025-12-28T09:09:20.293Z"
+           * @default "2025-12-28T15:31:47.621Z"
            */
           publishedAt: string;
           /** A string field */
@@ -1949,7 +1949,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.294Z"
+             * @default "2025-12-28T15:31:47.621Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2067,7 +2067,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.293Z"
+             * @default "2025-12-28T15:31:47.620Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2104,7 +2104,7 @@ export class Api<
           slug?: string;
           /**
            * A datetime field
-           * @default "2025-12-28T09:09:20.295Z"
+           * @default "2025-12-28T15:31:47.622Z"
            */
           publishedAt?: string;
           /** A string field */
@@ -2156,7 +2156,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.295Z"
+             * @default "2025-12-28T15:31:47.622Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2240,7 +2240,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T09:09:20.296Z"
+             * @default "2025-12-28T15:31:47.625Z"
              */
             publishedAt: string;
             /** A string field */

@@ -439,6 +439,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   attributes: {
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     content: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
