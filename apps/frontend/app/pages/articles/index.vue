@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useRouteQuery } from '@vueuse/router'
 import type { ApiPostPostDocument } from '@drovovoz/api-client'
-import { ca } from '@nuxt/ui/runtime/locale/index.js'
 
 const page = useRouteQuery('page', 1)
 const p = ref(Number(page.value)) // for UPagination v-model
