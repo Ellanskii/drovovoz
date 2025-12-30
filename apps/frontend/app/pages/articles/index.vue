@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import { useRouteQuery } from '@vueuse/router'
 import type { ApiPostPostDocument } from '@drovovoz/api-client'
 
+const page = useRouteQuery('page', 1)
+const p = ref(Number(page.value)) // for UPagination v-model
+
 const { find } = useStrapi()
-const { data: posts } = await useAsyncData('posts', () =>
+const { data: posts } = await useAsyncData('articles', () =>
   find<ApiPostPostDocument>('posts', {
     fields: ['title', 'slug', 'documentId', 'publishedAt', 'excerpt'],
     populate: {
@@ -10,14 +14,21 @@ const { data: posts } = await useAsyncData('posts', () =>
         fields: ['url', 'width', 'height'],
       },
     } as any,
-  })
+    pagination: {
+      page: page.value,
+      pageSize: 2,
+    },
+  }),
+  {
+    watch: [ page ],
+  }
 )
 </script>
 
 <template>
   <UPage>
     <UPageHero title="Blog">
-      <!-- <pre>{{ posts }}</pre> -->
+
     </UPageHero>
 
     <UPageBody>
@@ -35,6 +46,15 @@ const { data: posts } = await useAsyncData('posts', () =>
           />
         </UBlogPosts>
       </UContainer>
+
+      <div v-if="posts && posts.meta.pagination.pageCount > 1" class="flex justify-center">
+        <UPagination
+          v-model:page="p"
+          :to="(page: number) => ({ query: { page }})"
+          :items-per-page="posts.meta.pagination.pageSize"
+          :total="posts.meta.pagination.total"
+        />
+      </div>
     </UPageBody>
   </UPage>
 </template>
