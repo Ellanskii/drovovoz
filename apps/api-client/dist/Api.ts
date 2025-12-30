@@ -60,7 +60,7 @@ export interface PluginUploadFileDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-12-28T15:31:47.593Z"
+   * @default "2025-12-30T21:34:49.306Z"
    */
   publishedAt: string;
   related: any;
@@ -86,7 +86,7 @@ export interface ApiCategoryCategoryDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-12-28T15:31:47.594Z"
+   * @default "2025-12-30T21:34:49.308Z"
    */
   publishedAt: string;
   /** A string field */
@@ -115,7 +115,7 @@ export interface ApiTagTagDocument {
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-12-28T15:31:47.595Z"
+   * @default "2025-12-30T21:34:49.309Z"
    */
   publishedAt: string;
   /** A string field */
@@ -124,6 +124,101 @@ export interface ApiTagTagDocument {
   posts?: ApiPostPostDocument[];
   /** A relational field */
   localizations?: ApiTagTagDocument[];
+}
+
+export interface PluginUsersPermissionsPermissionDocument {
+  /**
+   * The document ID, represented by a UUID
+   * @format uuid
+   * @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$
+   */
+  documentId: string;
+  id: number;
+  /** A string field */
+  action: string;
+  /** A datetime field */
+  createdAt?: string;
+  /** A datetime field */
+  updatedAt?: string;
+  /**
+   * A datetime field
+   * @default "2025-12-30T21:34:49.311Z"
+   */
+  publishedAt: string;
+  /** A relational field */
+  role?: PluginUsersPermissionsRoleDocument;
+}
+
+export interface PluginUsersPermissionsRoleDocument {
+  /**
+   * The document ID, represented by a UUID
+   * @format uuid
+   * @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$
+   */
+  documentId: string;
+  id: number;
+  /** A string field */
+  name: string;
+  /** A string field */
+  description?: string;
+  /** A string field */
+  type?: string;
+  /** A datetime field */
+  createdAt?: string;
+  /** A datetime field */
+  updatedAt?: string;
+  /**
+   * A datetime field
+   * @default "2025-12-30T21:34:49.310Z"
+   */
+  publishedAt: string;
+  /** A relational field */
+  permissions?: PluginUsersPermissionsPermissionDocument[];
+  /** A relational field */
+  users?: PluginUsersPermissionsUserDocument[];
+}
+
+export interface PluginUsersPermissionsUserDocument {
+  /**
+   * The document ID, represented by a UUID
+   * @format uuid
+   * @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$
+   */
+  documentId: string;
+  id: number;
+  /** A string field */
+  username: string;
+  /**
+   * An email field
+   * @format email
+   * @pattern ^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\-\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$
+   */
+  email: string;
+  /** A string field */
+  provider?: string;
+  /**
+   * A boolean field
+   * @default false
+   */
+  confirmed: boolean;
+  /**
+   * A boolean field
+   * @default false
+   */
+  blocked: boolean;
+  /** A datetime field */
+  createdAt?: string;
+  /** A datetime field */
+  updatedAt?: string;
+  /**
+   * A datetime field
+   * @default "2025-12-30T21:34:49.310Z"
+   */
+  publishedAt: string;
+  /** A relational field */
+  role?: PluginUsersPermissionsRoleDocument;
+  /** A relational field */
+  posts?: ApiPostPostDocument[];
 }
 
 export interface ApiPostPostDocument {
@@ -142,13 +237,20 @@ export interface ApiPostPostDocument {
   content: string;
   /** A text field */
   excerpt?: string;
+  /**
+   * An integer field
+   * @min -9007199254740991
+   * @max 9007199254740991
+   * @default 1
+   */
+  views: number;
   /** A datetime field */
   createdAt?: string;
   /** A datetime field */
   updatedAt?: string;
   /**
    * A datetime field
-   * @default "2025-12-28T15:31:47.591Z"
+   * @default "2025-12-30T21:34:49.305Z"
    */
   publishedAt: string;
   /** A string field */
@@ -159,6 +261,8 @@ export interface ApiPostPostDocument {
   category?: ApiCategoryCategoryDocument;
   /** A relational field */
   tags?: ApiTagTagDocument[];
+  /** A relational field */
+  author?: PluginUsersPermissionsUserDocument;
   /** A relational field */
   localizations?: ApiPostPostDocument[];
 }
@@ -673,7 +777,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.590Z"
+             * @default "2025-12-30T21:34:49.303Z"
              */
             publishedAt: string;
             /** A string field */
@@ -711,7 +815,7 @@ export class Api<
           description?: string;
           /**
            * A datetime field
-           * @default "2025-12-28T15:31:47.601Z"
+           * @default "2025-12-30T21:34:49.317Z"
            */
           publishedAt: string;
           /** A string field */
@@ -766,7 +870,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.601Z"
+             * @default "2025-12-30T21:34:49.317Z"
              */
             publishedAt: string;
             /** A string field */
@@ -892,7 +996,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.599Z"
+             * @default "2025-12-30T21:34:49.313Z"
              */
             publishedAt: string;
             /** A string field */
@@ -931,7 +1035,7 @@ export class Api<
           description?: string;
           /**
            * A datetime field
-           * @default "2025-12-28T15:31:47.602Z"
+           * @default "2025-12-30T21:34:49.319Z"
            */
           publishedAt?: string;
           /** A string field */
@@ -986,7 +1090,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.603Z"
+             * @default "2025-12-30T21:34:49.319Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1074,7 +1178,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.604Z"
+             * @default "2025-12-30T21:34:49.320Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1110,6 +1214,7 @@ export class Api<
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1121,6 +1226,7 @@ export class Api<
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1168,6 +1274,7 @@ export class Api<
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1177,6 +1284,7 @@ export class Api<
               | "slug"
               | "content"
               | "excerpt"
+              | "views"
               | "createdAt"
               | "updatedAt"
               | "publishedAt"
@@ -1187,6 +1295,7 @@ export class Api<
               | "slug"
               | "content"
               | "excerpt"
+              | "views"
               | "createdAt"
               | "updatedAt"
               | "publishedAt"
@@ -1198,6 +1307,7 @@ export class Api<
               | "slug"
               | "content"
               | "excerpt"
+              | "views"
               | "createdAt"
               | "updatedAt"
               | "publishedAt"
@@ -1210,8 +1320,9 @@ export class Api<
           | "cover"
           | "category"
           | "tags"
+          | "author"
           | "localizations"
-          | ("cover" | "category" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "author" | "localizations")[];
         /** Select a locale */
         locale?: string;
         /** Fetch documents based on their status. Default to "published" if not specified. */
@@ -1237,13 +1348,20 @@ export class Api<
             content: string;
             /** A text field */
             excerpt?: string;
+            /**
+             * An integer field
+             * @min -9007199254740991
+             * @max 9007199254740991
+             * @default 1
+             */
+            views: number;
             /** A datetime field */
             createdAt?: string;
             /** A datetime field */
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.606Z"
+             * @default "2025-12-30T21:34:49.323Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1254,6 +1372,8 @@ export class Api<
             category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
+            /** A relational field */
+            author?: PluginUsersPermissionsUserDocument;
             /** A relational field */
             localizations?: ApiPostPostDocument[];
           }[];
@@ -1286,8 +1406,15 @@ export class Api<
           /** A text field */
           excerpt?: string;
           /**
+           * A float field
+           * @min -9007199254740991
+           * @max 9007199254740991
+           * @default 1
+           */
+          views: number;
+          /**
            * A datetime field
-           * @default "2025-12-28T15:31:47.612Z"
+           * @default "2025-12-30T21:34:49.327Z"
            */
           publishedAt: string;
           /** A string field */
@@ -1302,6 +1429,12 @@ export class Api<
           category?: string;
           /** A relational field */
           tags?: string[];
+          /**
+           * A relational field
+           * @format uuid
+           * @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$
+           */
+          author?: string;
         };
       },
       query?: {
@@ -1311,6 +1444,7 @@ export class Api<
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1322,8 +1456,9 @@ export class Api<
           | "cover"
           | "category"
           | "tags"
+          | "author"
           | "localizations"
-          | ("cover" | "category" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "author" | "localizations")[];
         /** Select a locale */
         locale?: string;
         /** Fetch documents based on their status. Default to "published" if not specified. */
@@ -1349,13 +1484,20 @@ export class Api<
             content: string;
             /** A text field */
             excerpt?: string;
+            /**
+             * An integer field
+             * @min -9007199254740991
+             * @max 9007199254740991
+             * @default 1
+             */
+            views: number;
             /** A datetime field */
             createdAt?: string;
             /** A datetime field */
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.612Z"
+             * @default "2025-12-30T21:34:49.328Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1366,6 +1508,8 @@ export class Api<
             category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
+            /** A relational field */
+            author?: PluginUsersPermissionsUserDocument;
             /** A relational field */
             localizations?: ApiPostPostDocument[];
           };
@@ -1397,6 +1541,7 @@ export class Api<
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1408,14 +1553,16 @@ export class Api<
           | "cover"
           | "category"
           | "tags"
+          | "author"
           | "localizations"
-          | ("cover" | "category" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "author" | "localizations")[];
         /** Filters to apply to the query */
         filters?: Record<
           | "title"
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1428,6 +1575,7 @@ export class Api<
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1437,6 +1585,7 @@ export class Api<
               | "slug"
               | "content"
               | "excerpt"
+              | "views"
               | "createdAt"
               | "updatedAt"
               | "publishedAt"
@@ -1447,6 +1596,7 @@ export class Api<
               | "slug"
               | "content"
               | "excerpt"
+              | "views"
               | "createdAt"
               | "updatedAt"
               | "publishedAt"
@@ -1458,6 +1608,7 @@ export class Api<
               | "slug"
               | "content"
               | "excerpt"
+              | "views"
               | "createdAt"
               | "updatedAt"
               | "publishedAt"
@@ -1489,13 +1640,20 @@ export class Api<
             content: string;
             /** A text field */
             excerpt?: string;
+            /**
+             * An integer field
+             * @min -9007199254740991
+             * @max 9007199254740991
+             * @default 1
+             */
+            views: number;
             /** A datetime field */
             createdAt?: string;
             /** A datetime field */
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.608Z"
+             * @default "2025-12-30T21:34:49.326Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1506,6 +1664,8 @@ export class Api<
             category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
+            /** A relational field */
+            author?: PluginUsersPermissionsUserDocument;
             /** A relational field */
             localizations?: ApiPostPostDocument[];
           };
@@ -1539,8 +1699,15 @@ export class Api<
           /** A text field */
           excerpt?: string;
           /**
+           * A float field
+           * @min -9007199254740991
+           * @max 9007199254740991
+           * @default 1
+           */
+          views?: number;
+          /**
            * A datetime field
-           * @default "2025-12-28T15:31:47.614Z"
+           * @default "2025-12-30T21:34:49.332Z"
            */
           publishedAt?: string;
           /** A string field */
@@ -1555,6 +1722,12 @@ export class Api<
           category?: string;
           /** A relational field */
           tags?: string[];
+          /**
+           * A relational field
+           * @format uuid
+           * @pattern ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$
+           */
+          author?: string;
         };
       },
       query?: {
@@ -1564,6 +1737,7 @@ export class Api<
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1575,8 +1749,9 @@ export class Api<
           | "cover"
           | "category"
           | "tags"
+          | "author"
           | "localizations"
-          | ("cover" | "category" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "author" | "localizations")[];
         /** Select a locale */
         locale?: string;
         /** Fetch documents based on their status. Default to "published" if not specified. */
@@ -1602,13 +1777,20 @@ export class Api<
             content: string;
             /** A text field */
             excerpt?: string;
+            /**
+             * An integer field
+             * @min -9007199254740991
+             * @max 9007199254740991
+             * @default 1
+             */
+            views: number;
             /** A datetime field */
             createdAt?: string;
             /** A datetime field */
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.614Z"
+             * @default "2025-12-30T21:34:49.332Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1619,6 +1801,8 @@ export class Api<
             category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
+            /** A relational field */
+            author?: PluginUsersPermissionsUserDocument;
             /** A relational field */
             localizations?: ApiPostPostDocument[];
           };
@@ -1650,6 +1834,7 @@ export class Api<
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1661,14 +1846,16 @@ export class Api<
           | "cover"
           | "category"
           | "tags"
+          | "author"
           | "localizations"
-          | ("cover" | "category" | "tags" | "localizations")[];
+          | ("cover" | "category" | "tags" | "author" | "localizations")[];
         /** Filters to apply to the query */
         filters?: Record<
           | "title"
           | "slug"
           | "content"
           | "excerpt"
+          | "views"
           | "createdAt"
           | "updatedAt"
           | "publishedAt"
@@ -1700,13 +1887,20 @@ export class Api<
             content: string;
             /** A text field */
             excerpt?: string;
+            /**
+             * An integer field
+             * @min -9007199254740991
+             * @max 9007199254740991
+             * @default 1
+             */
+            views: number;
             /** A datetime field */
             createdAt?: string;
             /** A datetime field */
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.616Z"
+             * @default "2025-12-30T21:34:49.334Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1717,6 +1911,8 @@ export class Api<
             category?: ApiCategoryCategoryDocument;
             /** A relational field */
             tags?: ApiTagTagDocument[];
+            /** A relational field */
+            author?: PluginUsersPermissionsUserDocument;
             /** A relational field */
             localizations?: ApiPostPostDocument[];
           };
@@ -1861,7 +2057,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.618Z"
+             * @default "2025-12-30T21:34:49.336Z"
              */
             publishedAt: string;
             /** A string field */
@@ -1897,7 +2093,7 @@ export class Api<
           slug: string;
           /**
            * A datetime field
-           * @default "2025-12-28T15:31:47.621Z"
+           * @default "2025-12-30T21:34:49.338Z"
            */
           publishedAt: string;
           /** A string field */
@@ -1949,7 +2145,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.621Z"
+             * @default "2025-12-30T21:34:49.338Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2067,7 +2263,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.620Z"
+             * @default "2025-12-30T21:34:49.337Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2104,7 +2300,7 @@ export class Api<
           slug?: string;
           /**
            * A datetime field
-           * @default "2025-12-28T15:31:47.622Z"
+           * @default "2025-12-30T21:34:49.339Z"
            */
           publishedAt?: string;
           /** A string field */
@@ -2156,7 +2352,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.622Z"
+             * @default "2025-12-30T21:34:49.340Z"
              */
             publishedAt: string;
             /** A string field */
@@ -2240,7 +2436,7 @@ export class Api<
             updatedAt?: string;
             /**
              * A datetime field
-             * @default "2025-12-28T15:31:47.625Z"
+             * @default "2025-12-30T21:34:49.341Z"
              */
             publishedAt: string;
             /** A string field */

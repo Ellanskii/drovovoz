@@ -65,6 +65,21 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "mappedBy": "posts"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "posts"
+    },
+    "views": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "default": 1
     }
   }
 }
