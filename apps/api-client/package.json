@@ -1,0 +1,12 @@
+{
+  "name": "@drovovoz/api-client",
+  "type": "module",
+  "private": true,
+  "main": "./dist/Api.ts",
+  "scripts": {
+    "api:generate": "swagger-typescript-api generate --path http://localhost:1337/swagger-spec.json --output ./dist"
+  },
+  "devDependencies": {
+    "swagger-typescript-api": "^13.2.13"
+  }
+}

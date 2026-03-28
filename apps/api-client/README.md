@@ -1,0 +1,1 @@
+https://www.npmjs.com/package/swagger-typescript-api/v/13.0.28
